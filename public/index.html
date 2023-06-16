@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
+    <link rel="stylesheet" href="styles/tweetContainer.css" type="text/css" />
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -26,6 +26,7 @@
   </head>
 
   <body>
+
     <!-- Top nav bar (fixed) -->
     <nav>
        <span id='logo'>tweeter</span> 
@@ -34,6 +35,7 @@
 
     <!-- header content-->
     <header>
+      <header id="header">
       <div id="somediv">
       <div>
         <img src="/images/profile-hex.png"> 
@@ -53,6 +55,51 @@
         <input type="submit" value="Tweet">
         <span class="counter">140</span>
     </form>
+    </section>
+
+    <section>
+      <article class="tweet">
+        <header>
+          <p>Newton</p>
+          <p class="username">@SirIssac</p>
+          </header>
+          <div>
+            <p>If I seen further it is by standing on the shoulders of gaints</p>
+          </div>
+          <footer>
+            <p>10 days ago</p>
+            <p class="interaction">like</p>
+          </footer>
+      </article>
+
+      <!-- <article class="tweet">
+        <header>
+          <p>Tesla</p>
+          <p class="username">@SirTesla</p>
+        </header>
+        <div>
+          <p>I love inventing new things</p>
+        </div>
+        <footer>
+          <p>5 days ago</p>
+          <p class="interaction">like</p>
+        </footer>
+      </article>
+
+      <article class="tweet">
+        <header>
+          <p>Einstein</p>
+          <p class="username">@SirEinstein</p>
+        </header>
+        <div>
+          <p>I need to go for a long vacation</p>
+        </div>
+        <footer>
+          <p>8 hours ago</p>
+          <p class="interaction">like</p>
+        </footer>
+      </article> -->
+
     </section>
   </main>
   </body>
