@@ -19,6 +19,14 @@ article header {
   padding-right: 0.8em;
 }
 
+article div {
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+}
+
 article footer {
   color: black;
   font-size: 16px;
