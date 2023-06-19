@@ -5,10 +5,11 @@
  */
 
 //loop through database & filter each object to fill tweets info
+
 const renderTweets = function(tweets) {
   for (let tweet of tweets) {
     const $tweet = createTweetElement(tweet)
-    $(".container").append($tweet)
+    $('#tweetSection').prepend($tweet)
   }
 }
 
@@ -85,14 +86,14 @@ const formValidation = (data) => {
   return errorMsg
 }
 
-const submitForm = (url, method, text) => {
-  const errorMsg = formValidation(text)
+const submitForm = (url, method, tweet) => {
+  const errorMsg = formValidation(tweet)
   if (errorMsg) {
     alert(errorMsg)
   } else {
-    $.ajax({url, method, data: { text }})
-    .then(response => {
-      console.log('worked')
+    $.ajax({url, method, data: { tweet }})
+    .then(() => {
+      loadLastTweet('/tweets');
     })
     .fail(err => {
       console.log(err)
@@ -101,14 +102,14 @@ const submitForm = (url, method, text) => {
 }
 
 //responsible for fetching tweets
-const loadTweets = (url, method) => {
-  $.ajax({url, method})
+const loadTweets = url => {
+  $.ajax({url, method: 'GET'})
   .then(tweets => {
     renderTweets(tweets)
 
     //After rendering tweets, update the timeago formatting
     $(".container").find("footer p:first-child").each(function() {
-      const timestamp = $(this).text();
+      const timestamp = $(this).tweet();
       $(this).text($.timeago(timestamp));
     })
   })
@@ -127,5 +128,5 @@ $(() => {
     submitForm('/tweets', 'POST', tweet);
   })
 
-  loadTweets("/tweets", "GET")
+  loadTweets("/tweets")
 });
