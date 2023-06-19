@@ -11,7 +11,7 @@ $(document).ready(function() {
       $(this).nextAll('.counter').css("color", "#545149");
     }
   });
-
+//when the user scroll past 450px it displays the second toggle button
   $(window).scroll(function() {
     if ($(window).scrollTop() > 450) {
       $('#downBtn').fadeIn('100');
@@ -21,7 +21,7 @@ $(document).ready(function() {
       $('#navBtn').fadeIn('100');
     }
   });
-
+//when clicking on the second toggle button it brings back to the top of the page, also focuses on the textarea
   $('#downBtn').on('click', function() {
     $('body, html').animate({scrollTop: 0}, '300');
     $('#form').slideDown();

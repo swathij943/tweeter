@@ -14,6 +14,7 @@ const renderTweets = function(tweets) {
 }
 
 //creating each tweet using info from the database
+
 const createTweetElement = function(tweetData) {
   //create tweet article
 
@@ -22,22 +23,18 @@ const createTweetElement = function(tweetData) {
   //create & append header, containing div (username & avatar) & handler
 
   let $header = $("<header>");
-
   let $headerDiv = $("<div>");
-
   $('<img>')
-  .att('src', tweetData["user"]["avatars"])
-  .appendTo($headerDiv);
-
+    .attr('src', tweetData["user"]["avatars"])
+    .appendTo($headerDiv);
   $('<p>')
-  .text(tweetData["user"]["name"])
-  .appendTo($headerDiv);
+    .text(tweetData["user"]["name"])
+    .appendTo($headerDiv);
   $header.append($headerDiv);
-
   $('<p>')
-  .addClass('username')
-  .text(tweetData["user"]["handle"])
-  .appendTo($header)
+    .addClass('username')
+    .text(tweetData["user"]["handle"])
+    .appendTo($header)
 
   //append header to tweet article
 
@@ -47,29 +44,21 @@ const createTweetElement = function(tweetData) {
 
   let $content = $("<div>");
   $('<p>')
-  .text(tweetData["content"]["text"])
-  .appendTo($content);
+    .text(tweetData["content"]["text"])
+    .appendTo($content);
   $tweet.append($content);
 
   //create footer appended to the tweet article
 
   let $footer = $("<footer>");
   $('<p>')
-  .text(new Date(tweetData["created_at"]).toDateString())
-  .appendTo($footer);
-
+    .text(new Date(tweetData["created_at"]).toDateString())
+    .appendTo($footer);
   $('<p>')
-  .text('like')
-  .addClass('interaction')
-  .appendTo($footer);
+    .text('like')
+    .addClass('interaction')
+    .appendTo($footer);
   $tweet.append($footer);
-
-  //Format the time passed since the tweet's creation
-  const timePassed = $.timeago(tweetData["created_at"]);
-  $('<p>')
-  .text(timePassed)
-  .appendTo($footer);
-
   return $tweet;
 }
 
@@ -77,8 +66,8 @@ const createTweetElement = function(tweetData) {
 
 const formValidation = (data) => {
   let errorMsg;
-  if(!data) {
-    errorMsg = "Cannot submit empty tweets" 
+  if (!data) {
+    errorMsg = "Cannot submit empty tweet"
   }
   if (data.length > 140) {
     errorMsg = "Cannot submit tweet over 140 characters"
@@ -87,37 +76,38 @@ const formValidation = (data) => {
 }
 
 //submit an ajax request to add the tweet to the db asynchronously
+
 const submitForm = (url, method, tweet) => {
-  $.ajax({url, method, data: { text: tweet }})
-  .then(() => {
-    loadLastTweet('/tweets');
-  })
-  .fail(err => {
-    console.log(err)
-  })
+  $.ajax({url, method, data: { text: tweet } })
+    .then(() => {
+      loadLastTweet('/tweets');
+    })
+    .fail(err => {
+      console.log(err)
+    })
 }
 
 //fetch or load all tweet async onto the page
 const loadTweets = url => {
   $.ajax({url, method: 'GET'})
-  .then(tweets => {
-    renderTweets(tweets)
-  })
-  .fail(err => {
-    console.log(err)
-  })
+    .then(tweets => {
+      renderTweets(tweets)
+    })
+    .fail(err => {
+      console.log(err)
+    })
 }
 
 //load the newly submitted tweet onto the page
 
 const loadLastTweet = url => {
   $.ajax({url, method: 'GET'})
-  .then(tweets => {
-    renderTweets([tweets[tweets.length - 1]])
-  })
-  .fail(err => {
-    console.log(err)
-  })
+    .then(tweets => {
+      renderTweets([tweets[tweets.length - 1]])
+    })
+    .fail(err => {
+      console.log(err)
+    })
 }
 
 //shorthand of document ready menthod is $(() => {}) - $(document).ready(function() {})
