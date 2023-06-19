@@ -129,4 +129,9 @@ $(() => {
   })
 
   loadTweets("/tweets")
+  
+  $('#slideBtn').on('click', function() {
+    $('#form').slideToggle()
+    $('textarea').focus()
+  })
 });
