@@ -63,6 +63,12 @@ const createTweetElement = function(tweetData) {
   .appendTo($footer);
   $tweet.append($footer);
 
+  //Format the time passed since the tweet's creation
+  const timePassed = $.timeago(tweetData["created_at"]);
+  $('<p>')
+  .text(timePassed)
+  .appendTo($footer);
+
   return $tweet;
 }
 
@@ -82,10 +88,17 @@ const ajaxPostRequest = (url, method, data) => {
   });
 }
 
+//responsible for fetching tweets
 const loadTweets = (url, method) => {
   $.ajax({url, method})
   .then(tweets => {
     renderTweets(tweets)
+
+    //After rendering tweets, update the timeago formatting
+    $(".container").find("footer p:first-child").each(function() {
+      const timestamp = $(this).text();
+      $(this).text($.timeago(timestamp));
+    })
   })
   .fail(err => {
     console.log(err)
