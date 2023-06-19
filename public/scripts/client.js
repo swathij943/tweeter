@@ -42,22 +42,62 @@ const renderTweets = function(tweets) {
   }
 }
 
+//creating each tweet using info from the database
 const createTweetElement = function(tweetData) {
-  let $tweet = $('<article>').addClass('tweet')
-  .append($("<header>")
-  .append($("<div>")
-  .append(`<img src="{tweetData["user"]["avatars"]}">`)
-  .append(`<p>${tweetData["user"]["name"]}</p>`))
-  .append($(`p${tweetData["user"]["handle"]}</p>`).addClass('username')))
+  //create tweet article
 
-  .append($("<div>")
-  .append(`<p>${tweetData["content"]["text"]}</p>`))
+  let $tweet = $('<article>').addClass('tweet');
 
-  .append($("<footer>")
-  .append(`<p>${new Date(tweetData["created_at"]).toDateString()}</p>`)
-  .append($("<p>like</p>").addClass('interaction')))
+  //create header, append div containing avatar & username & handler
+
+  let $header = $("<header>");
+
+  let $headerDiv = $("<div>");
+
+  $('<img>')
+  .att('src', tweetData["user"]["avatars"])
+  .appendTo($headerDiv);
+
+  $('<p>')
+  .text(tweetData["user"]["name"])
+  .appendTo($headerDiv);
+  $header.append($headerDiv);
+
+  $('<p>')
+  .addClass('username')
+  .text(tweetData["user"]["handle"])
+  .appendTo($header)
+
+  //append header to tweet article
+
+  $tweet.append($header);
+
+  //create & append content div & main text
+
+  let $content = $("<div>");
+  $('<p>')
+  .text(tweetData["content"]["text"])
+  .appendTo($content);
+  $tweet.append($content);
+
+  //create footer appended to the tweet article
+
+  let $footer = $("<footer>");
+  $('<p>')
+  .text(new Date(tweetData["created_at"]).toDateString())
+  .appendTo($footer);
+
+  $('<p>')
+  .text('like')
+  .addClass('interaction')
+  .appendTo($footer);
+  $tweet.append($footer);
+
   return $tweet;
 }
+
+
+//shorthand of document ready menthod is $(() => {})
 
 $(document).ready(function() {
   renderTweets(data)
