@@ -12,7 +12,6 @@
   z-index: 1000;
   padding: 1.5em;
 }
-
 .bar div {
   display: flex;
   flex-direction: column;
@@ -20,7 +19,6 @@
   justify-content: space-between;
   height: 63px;
 }
-
 .bar div button {
   border: none;
   background-color: #4056A1;
@@ -30,6 +28,7 @@
 
 .bar div button:hover {
   animation: float 1s ease-in-out infinite;
+  cursor: pointer;
 }
 
 #logo {

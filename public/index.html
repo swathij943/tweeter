@@ -24,52 +24,46 @@
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-    <head>
-      <!-- Other head elements/Including timeago library -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.6.7/jquery.timeago.min.js"></script>
-    </head>
-
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
-    <nav>
-       <span id='logo'>tweeter</span> 
-       <div>
+    <nav class="bar">
+      <span id='logo'>tweeter</span>
+      <div id="navBtn">
         <span><b>Write</b> a new tweet</span>
         <button id="slideBtn"><img src="images/two-down-arrows.png"></button>
-       </div>
-    </nav>
+    </div>
+  </nav>
 
     <!-- header content-->
-    <header>
-      <header id="header">
+    <header id="header">
       <div id="somediv">
-      <div>
-        <img src="/images/profile-hex.png"> 
-    </div>
-    <br>
-    <div>
-        <h2>Your Name</h2>
-      </div>  
-    </div>
-    </header> 
+          <div>
+              <img src="/images/profile-hex.png">
+           </div>
+           <br>
+           <div>
+              <h2>Your Name</h2>
+           </div>
+      </div>
+    </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
-    <section class="new-tweet">
-      <p class='error'></p>
-    <form id="form" action="/tweets" methods="POST">
-      <textarea id="textBar" name="text" placeholder="What are you humming about?"></textarea>
-        <input type="submit" value="Tweet">
-        <span class="counter">140</span>
-    </form>
-    </section>
+    <main class="container">  
+      <section class="new-tweet">
+          <p class='error'></p>
+          <form id="form" action="/tweets/" method="POST">
+            <textarea id="textBar" name="text" placeholder="What are you humming about?"></textarea>
+            <input type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </form>
+      </section>
+      <section id="tweetSection">
+      </section>
 
-    <section id="tweetSection">
-    </section>
-
-  </main>
+      <button id="downBtn"><img src="images/two-down-arrows(1).png"></button>
+    </main>
   </body>
 </html>
