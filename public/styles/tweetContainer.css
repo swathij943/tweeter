@@ -8,25 +8,22 @@
   margin-right: 1.5em;
   margin-bottom: 2em;
   padding-left: 0.5em;
-  padding-right: 0.5em;
+  padding-right: 0.5em; 
 }
-
 article header {
-  color: black;
+  color: #545149;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding-left: 0.8em;
-  padding-right: 0.8em;
+  padding-right: 0.8em; 
 }
-
 article div {
   color: black;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-start; 
   padding-left: 0.8em;
-  padding-right: 0.8em;
+  padding-right: 0.8em; 
 }
-
 article footer {
   color: black;
   font-size: 16px;
@@ -35,33 +32,39 @@ article footer {
   border: none;
   border-top: 4px solid #545149;
   padding-left: 0.8em;
-  padding-right: 0.8rem;
+  padding-right: 0.8em; 
 }
-
 .tweet header div {
-  display:flex;
+  display: flex; 
   align-items: center;
   justify-content: space-between;
   width: 155px;
   padding: 0em;
 }
 
+.tweet footer div {
+  display: flex;
+  justify-content: space-between;
+  width: 120px;
+  align-items: center;
+}
+
+.tweet footer div img:hover {
+  animation: float 0.2s linear;
+} 
+
 .interaction {
   color: darkblue;
 }
-
 .username {
   color: #f4f1ec;
 }
-
 article.tweet:hover {
   box-shadow: 10px 10px 5px #B0C4DE;
 }
-
 article.tweet:hover .username {
   color: #B0C4DE;
 }
-
 #tweetSection {
   margin-top: 1em;
 }

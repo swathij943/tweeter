@@ -16,9 +16,10 @@ const renderTweets = function(tweets) {
 //creating each tweet using info from the database
 
 const createTweetElement = function(tweetData) {
+
   //create tweet article
 
-  let $tweet = $('<article>').addClass('tweet');
+ let $tweet = $('<article>').addClass('tweet');
 
   //create & append header, containing div (username & avatar) & handler
 
@@ -54,11 +55,21 @@ const createTweetElement = function(tweetData) {
   $('<p>')
     .text(new Date(tweetData["created_at"]).toDateString())
     .appendTo($footer);
-  $('<p>')
-    .text('like')
-    .addClass('interaction')
-    .appendTo($footer);
+
+    let $footerDiv = $('<div>');
+    $('<img>')
+      .attr('src', '../images/flag.png')
+      .appendTo($footerDiv)
+    $('<img>')
+      .attr('src', '../images/exchange.png')
+      .appendTo($footerDiv)
+    $('<img>')
+      .attr('src', '../images/heart.png')
+      .appendTo($footerDiv)
+  
+    $footer.append($footerDiv)
   $tweet.append($footer);
+
   return $tweet;
 }
 
@@ -86,8 +97,8 @@ const submitForm = (url, method, tweet) => {
       console.log(err)
     })
 }
-
 //fetch or load all tweet async onto the page
+
 const loadTweets = url => {
   $.ajax({url, method: 'GET'})
     .then(tweets => {
@@ -109,7 +120,6 @@ const loadLastTweet = url => {
       console.log(err)
     })
 }
-
 //shorthand of document ready menthod is $(() => {}) - $(document).ready(function() {})
 
 $(() => {
@@ -119,8 +129,9 @@ $(() => {
   $('#form').on('submit', function(event) {
     event.preventDefault();
     let tweet = $('#form textarea').val();
-    
+
     const errorMsg = formValidation(tweet)
+
     //if there is an error toggles down the error message
     if (errorMsg) {
       $('.error').slideDown().text(errorMsg)
@@ -134,9 +145,7 @@ $(() => {
       submitForm('/tweets', 'POST', tweet);
     }
   })
-
   loadTweets("/tweets")
-  
   $('#slideBtn').on('click', function() {
     $('#form').slideToggle()
     $('textarea').focus()
