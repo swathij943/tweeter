@@ -42,10 +42,20 @@ const createTweetElement = function(tweetData) {
   //create footer appended to the tweet article
 
   let $footer = $("<footer>");
+
   $('<p>')
     .text(new Date(tweetData["created_at"]).toDateString())
     .appendTo($footer);
 
+    $('<p>')
+    .addClass('timeago')
+    .attr('title', new Date(tweetData["created_at"]).toISOString())
+    .appendTo($footer);
+
+    $('p.timeago').ready(function() {
+      $("p.timeago").timeago();
+    })
+    
     let $footerDiv = $('<div>');
     $('<img>')
       .attr('src', '../images/flag.png')
@@ -70,6 +80,7 @@ const renderTweets = function(tweets) {
     const $tweet = createTweetElement(tweet);
     $('#tweetSection').prepend($tweet);
   }
+  $('#textBar').val('');
 };
 
 //checks for error message and returns it for display

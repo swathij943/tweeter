@@ -1,11 +1,13 @@
-$$(document).ready(function() {
-
+$(document).ready(function() {
   //hides the form to submit the new tweet & back up button on load
   $('#downBtn').hide();
   $('#form').hide();
 
+  
+
   $("#textBar").on('input', function() {
     const maxCount = 140;
+
     let inputLength = $(this).val().length;
     $(this).nextAll('.counter').text(maxCount - inputLength);
     if (inputLength > 140) {
@@ -14,6 +16,22 @@ $$(document).ready(function() {
       $(this).nextAll('.counter').css("color", "#545149");
     }
   });
+
+//   const maxCount = 140;
+  
+//   $('#myTextarea').on('input', function() {
+//     let inputLength = $(this).val().length;
+//     let remainingCount = maxCount - inputLength;
+    
+//     $(this).nextAll('.counter').text(remainingCount);
+    
+//     if (inputLength > maxCount) {
+//       $(this).nextAll('.counter').css("color", "red");
+//     } else {
+//       $(this).nextAll('.counter').css("color", "#545149");
+//     }
+//   });
+// });
 
 //when the user scroll past 230px it displays the second toggle button
 $(window).scroll(function() {
