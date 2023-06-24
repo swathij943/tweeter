@@ -32,8 +32,18 @@
 
 
 #logo {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-family: 'Bungee', cursive;
 }
+
+#logo img {
+  height: 70px;
+  width: 70px;
+}
+
 @keyframes float {
 	0% {
 		transform: translatey(0px);
@@ -45,3 +55,4 @@
 		transform: translatey(0px);
 	}
 }
+

@@ -130,6 +130,7 @@ $(() => {
     event.preventDefault();
     let tweet = $('#form textarea').val();
 
+
     const errorMsg = formValidation(tweet)
 
     //if there is an error toggles down the error message
