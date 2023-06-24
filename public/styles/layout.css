@@ -71,6 +71,7 @@
   .container {
     width: 60%;
   }
+
   #header {
     width: 30%;
     margin-top: 2em;
@@ -82,16 +83,4 @@
     flex-direction: column;
     margin-top: 1em;
   }
-}
-
-@keyframes float {
-	0% {
-    transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(2px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
 }

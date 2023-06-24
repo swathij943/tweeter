@@ -25,18 +25,18 @@
   animation: float 2s ease-in-out infinite;
   outline: none;
 }
-.bar div button img:hover {
+.bar div button:hover img {
   animation: float 0.4s linear;
   cursor: pointer;
 }
 
 
 #logo {
-  width: 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: 'Bungee', cursive;
+  width: 200px;
 }
 
 #logo img {
