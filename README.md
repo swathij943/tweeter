@@ -17,12 +17,12 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## Final Product
 
-!["Tweeter - main page"]()
+!["Tweeter - main page"](https://github.com/swathij943/tweeter/blob/master/public/images/tweeter_mainpage.PNG)
 
-!["Main page - Responsive design"]()
+!["Main page - Responsive design"](https://github.com/swathij943/tweeter/blob/master/public/images/responsive_design.PNG)
 
-!["For long tweets getting an error"]()
+!["For long tweets getting an error"](https://github.com/swathij943/tweeter/blob/master/public/images/longtweet.PNG)
 
-!["Empty tweets cant submit"]()
+!["Empty tweets cant submit"](https://github.com/swathij943/tweeter/blob/master/public/images/emptytweet.PNG)
 
-!["Submitting a tweet"]()
+!["Submitting a tweet"](https://github.com/swathij943/tweeter/blob/master/public/images/submittingtweet.PNG)
